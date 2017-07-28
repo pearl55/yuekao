@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery-2.1.4.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link  rel="stylesheet" href="/css/bootstrap.css">
+
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <td>id</td>
+        <td>用户名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>爱好</td>
+        <td>头像</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="user:${user}">
+        <td th:text="${user.id}" id="uid"></td>
+        <td th:text="${user.uname}"></td>
+        <td th:text="${user.sex}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.hobby}"></td>
+        <td th:text="${user.touxiang}"></td>
+        <td>
+            <a th:href="@{delete(id=${user.id})}" class="btn btn-danger">删除</a>
+            <a th:href="@{getId(id=${user.id})}" class="btn btn-primary">修改</a>
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>
